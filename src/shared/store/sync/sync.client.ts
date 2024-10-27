@@ -1,12 +1,12 @@
-import { sync } from "@rbxts/charm";
+import { client } from "@rbxts/charm-sync";
 import { remotes } from "shared/remotes";
 
 import { atoms } from "./atoms";
 
-const client = sync.client({ atoms });
+const syncer = client({ atoms });
 
 remotes.sync.connect((payload) => {
-	client.sync(payload);
+	syncer.sync(payload);
 });
 
 remotes.init();

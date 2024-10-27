@@ -1,7 +1,6 @@
 import { Players } from "@rbxts/services";
+import { useAtom } from "@rbxts/vide-charm";
 import { getPlayerData } from "shared/store/datastore";
-
-import { useAtom } from "./use-atom";
 
 export function useMoney() {
 	return useAtom(() => {

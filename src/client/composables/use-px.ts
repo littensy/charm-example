@@ -1,5 +1,7 @@
 import { Workspace } from "@rbxts/services";
-import { cleanup, source } from "@rbxts/vide";
+import { source } from "@rbxts/vide";
+
+import { useEvent } from "./use-event";
 
 const BASE_RESOLUTION = new Vector2(1280, 832);
 const MIN_SCALE = 0.5;
@@ -49,11 +51,9 @@ export function usePx() {
 		scale(math.max(2 ** centered, MIN_SCALE));
 	};
 
-	const connection = camera.GetPropertyChangedSignal("ViewportSize").Connect(() => {
+	useEvent(camera.GetPropertyChangedSignal("ViewportSize"), () => {
 		updateScale();
 	});
-
-	cleanup(connection);
 
 	updateScale();
 }

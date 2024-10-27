@@ -1,14 +1,15 @@
-import { sync } from "@rbxts/charm";
+import { server } from "@rbxts/charm-sync";
 import { remotes } from "shared/remotes";
 
 import { atoms } from "./atoms";
+import { filterPayload } from "./utils/filter-payload";
 
-const server = sync.server({ atoms });
+const syncer = server({ atoms });
 
-server.connect((player, payload) => {
-	remotes.sync(player, payload);
+syncer.connect((player, payload) => {
+	remotes.sync(player, filterPayload(player, payload));
 });
 
 remotes.init.connect((player) => {
-	server.hydrate(player);
+	syncer.hydrate(player);
 });
