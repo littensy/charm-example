@@ -1,6 +1,6 @@
 ## 🍀 Charm Example
 
-An example project demostrating how to use [Charm](https://github.com/littensy/charm) to build a Roblox game.
+An example project demostrating how to use [Charm](https://github.com/littensy/charm) to build a Roblox game. This includes [syncing server state](src/shared/store/sync) and an implementation of [filtering player data](src/shared/store/sync/utils/filter-payload.ts).
 
 **The libraries in this project include:**
 
