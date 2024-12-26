@@ -32,7 +32,7 @@
 		"@rbxts/remo": "^1.5.0",
 		"@rbxts/services": "^1.5.5",
 		"@rbxts/t": "^3.1.1",
-		"@rbxts/vide": "^0.4.6",
+		"@rbxts/vide": "^0.5.3",
 		"@rbxts/vide-charm": "^0.1.1"
 	}
 }

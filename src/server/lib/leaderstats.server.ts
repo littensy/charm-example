@@ -1,4 +1,4 @@
-import { effect, observe } from "@rbxts/charm";
+import { observe, subscribe } from "@rbxts/charm";
 import { Players } from "@rbxts/services";
 import { datastore, getPlayerData } from "shared/store/datastore";
 
@@ -19,8 +19,12 @@ observe(datastore.players, (_, name) => {
 	money.Name = "💸 Money";
 	money.Parent = leaderstats;
 
-	const unsubscribe = effect(() => {
-		money.Value = getPlayerData(name)?.money ?? 0;
+	const getMoney = () => {
+		return getPlayerData(name)?.money ?? 0;
+	};
+
+	const unsubscribe = subscribe(getMoney, (value) => {
+		money.Value = value;
 	});
 
 	return unsubscribe;
